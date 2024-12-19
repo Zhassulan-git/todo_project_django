@@ -1,3 +1,20 @@
 from django.db import models
+from users.models import CustomUser
 
-# Create your models here.
+class Project(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+
+
+class Task(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=12)
+    #assigned, done
+    priority = models.CharField(max_length=12)
+    #high, medium, low
+    expiration_date = models.DateTimeField(blank=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='tasks')

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #apps
     'todo.apps.TodoConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'todo_project.wsgi.application'
 
-
+AUTH_USER_MODEL = 'users.CustomUser' 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -105,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -127,6 +127,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-LOGIN_REDIRECT_URL= '/'
-LOGOUT_REDIRECT_URL = '/account/login'

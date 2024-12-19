@@ -1,0 +1,21 @@
+{% extends 'todo/base.html' %}
+{% block title %}
+Create a new project
+{% endblock %}
+{% block content %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="projectTitle" class="form-label">Title</label>
+                <input type="text" name="title" id="projectTitle" class="form-control">
+              </div>
+              
+            <div class="mb-3">
+                <label for="projectDescription" class="form-label">Description</label>
+                <input type="text" name="description" class="form-control" id="projectDescription" >
+              </div>
+              <button type="submit" class="btn btn-primary">
+                create new project
+              </button>
+        </form>
+{% endblock %}

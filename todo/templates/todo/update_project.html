@@ -1,0 +1,23 @@
+{% extends 'todo/base.html' %}
+{% block title %}
+{{title}}
+{% endblock %}
+{% block content %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="projectTitle" class="form-label">Title</label>
+                <input type="text" name="title" value="{{project.title}}" id="projectTitle" class="form-control">
+              </div>
+              
+            <div class="mb-3">
+                <label for="projectDescription" class="form-label">Description</label>
+                <input type="text" name="description" value="{{project.description}}" class="form-control" id="projectDescription" >
+              </div>
+              <!--add accordians
+              -->
+              <button type="submit" class="btn btn-primary">
+                Update project
+              </button>
+        </form>
+{% endblock %}

@@ -1,0 +1,61 @@
+
+<div class="flex-shrink-0 p-3 bg-white border-right" style="width: 280px;">
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          Projects
+        </button>
+        <div class="collapse show" id="home-collapse">
+            {% for project in object_list %}
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-2 small">
+            <li><a href="{% url 'detail-project' pk=project.pk %}" class="link-dark rounded link-underline-opacity-0 link-underline-opacity-100-hover p-3">{{ project.title }}</a></li>
+          </ul>
+          {% endfor %}
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-2 small">
+            <li><a href="{% url 'create-project' %}" class="link-dark rounded link-underline-opacity-0 link-underline-opacity-100-hover p-3">create new +</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Tasks
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded link-underline-opacity-0 link-underline-opacity-100-hover p-3">done</a></li>
+          </ul>
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded link-underline-opacity-0 link-underline-opacity-100-hover p-3">in progress</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Messengers
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded link-underline-opacity-0 link-underline-opacity-100-hover p-3">System</a></li>
+          </ul>
+          
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded link-underline-opacity-0 link-underline-opacity-100-hover p-3">    Personal</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">New...</a></li>
+            <li><a href="#" class="link-dark rounded">Profile</a></li>
+            <li><a href="#" class="link-dark rounded">Settings</a></li>
+            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
