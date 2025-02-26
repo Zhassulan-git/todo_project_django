@@ -1,27 +1,50 @@
+<div class="card mt-3">
 <div class="card-body p-3">
-    <small class="float-end text-muted">18 Jul 2018</small>
-    <span class="badge bg-danger">High</span>
-
-    <h6 class="mt-2 mb-2">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#task-detail-modal" class="text-body">iOS App home page</a>
-    </h6>
-
+    <small class="float-end text-muted mt-1">{{task.created_at}}</small>
+    <span class="badge bg-danger">{{task.priority}}</span>
+    <h5 class="mt-2 mb-2" data-bs-toggle="modal" role="button" data-bs-target="#exampleModal{{task.id}}">
+        {{task.title}}
+    </h5>
+    <!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal{{task.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{task.title}}</h5>
+        </div>
+        <div class="modal-body d-flex flex-column align-items-center"><div class="mb-3 w-75">
+                <label for="exampleInputEmail1" class="form-label">Task title</label>
+                <p type="text" class="">{{task.title}}</p>
+              </div>
+              <div class="mb-3 w-75">
+                <label for="exampleInputEmail1" class="form-label">Task description</label>
+                <p rows="4" class="">{{task.description}}
+                </p>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a  href="{% url 'update-task' project_pk=project.pk pk=task.pk %}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'delete-task' project_pk=project.pk pk=task.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
     <p class="mb-0">
         <span class="text-nowrap mb-2 d-inline-block">
             <i class="mdi mdi-comment-multiple-outline text-muted"></i>
             <b>74</b> Comments
         </span>
     </p>
-
+<!-- 
     <div class="dropdown float-end">
         <a href="#" class="dropdown-toggle text-muted arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="mdi mdi-dots-vertical font-18"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-end">
-            <!-- item-->
             <a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-pencil me-1"></i>Edit</a>
-            <!-- item-->
             <a href="javascript:void(0);" class="dropdown-item"><i class="mdi mdi-delete me-1"></i>Delete</a>
         </div>
-    </div>
+    </div> -->
+</div>
 </div>

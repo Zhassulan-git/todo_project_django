@@ -25,9 +25,10 @@ SECRET_KEY = 'django-insecure-bu+c&p_5p-d@g#a@snc$dbg=vfe7j$l8u%aqy5luhde0@3d)gc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
+INTERNAL_IPS=["127.0.0.1"]
 
-
+STATIC_URL='static/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     #apps
     'todo.apps.TodoConfig',
     'users.apps.UsersConfig',
+    #
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
 ROOT_URLCONF = 'todo_project.urls'

@@ -6,7 +6,7 @@
           Projects
         </button>
         <div class="collapse show" id="home-collapse">
-            {% for project in object_list %}
+            {% for project in project_with_tasks %}
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-2 small">
             <li><a href="{% url 'detail-project' pk=project.pk %}" class="link-dark rounded link-underline-opacity-0 link-underline-opacity-100-hover p-3">{{ project.title }}</a></li>
           </ul>
@@ -31,7 +31,7 @@
       </li>
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          Messengers
+          Messages
         </button>
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">

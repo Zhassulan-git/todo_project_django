@@ -1,11 +1,10 @@
-from .models import Project
+from .models import Project, Task
 from .forms import ProjectForm
 
 class DataMixin:
     #get all projects for particular user
-    def get_projects_context(self,request, **kwargs):
+    def get_projects_context(self, request, **kwargs):
         context = kwargs
-        user_id = request.user.id
-        projects = Project.objects.filter(user_id=user_id).prefetch_related('tasks')
-        context['object_list'] = projects
+        tasks = Project.objects.filter(user_id=request.user).prefetch_related('tasks')
+        context['project_with_tasks'] = tasks
         return context

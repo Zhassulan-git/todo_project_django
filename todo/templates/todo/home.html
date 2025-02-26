@@ -1,22 +1,5 @@
 {% extends 'todo/base.html' %}
 {% block title %}Home{% endblock %}
     {% block content %}
-            <nav class="nav">
-                <a class="nav-link active" aria-current="page" href="#">All projects</a>
-                <a class="nav-link" href="#">All tasks</a>
-                <a class="nav-link" href="#">Link</a>
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </nav>
-            {% include 'todo/kanban_row.html' %}
-            
-        <!-- {% for project in projects %}
-            {{ project.title }}
-            {% for task in project.tasks.all %}
-                {{task.title}}
-            {% empty %}
-                    <h3>no tasks</h3>
-            {% endfor %}
-        {% empty %}
-            <h1>You don have projects</h1>
-        {% endfor %} -->
+        <h3>Please select a project</h3>
     {% endblock %}
